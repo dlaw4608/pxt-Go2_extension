@@ -1,3 +1,4 @@
+namespace Dog_Commands{
 /* 
 Go2 Test
 
@@ -7,4 +8,4 @@ Go2 Test
 function sit_command() {
     radio.sendString("Sit")
 }
-
+}
