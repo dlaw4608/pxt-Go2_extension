@@ -1,9 +1,4 @@
 
 
-
-
-# block
-def on_button_pressed_b():
-    radio.send_string("RiseSit")
-input.on_button_pressed(Button.B, on_button_pressed_b)
-
+def sit_command():
+    radio.send_string("Sit")
