@@ -1,15 +1,15 @@
-input.onButtonPressed(Button.A, function () {
-    radio.sendString("Sit")
-})
-radio.onReceivedString(function (receivedString) {
-    if (receivedString == "Sit") {
-        serial.writeString("Sit")
-    } else if (receivedString == "RiseSit") {
-        serial.writeString("RiseSit")
-        basic.showString("RiseSit")
-    }
-})
-input.onButtonPressed(Button.B, function () {
-    radio.sendString("RiseSit")
-})
-radio.setGroup(1)
+namespace screenMagic {
+/*
+* Address LEDs linearly row first
+*/
+//%  blockId = screenmagicplotat
+//% block="plot at index"
+//% index.min=0 index.max=25
+
+export function plotAt(index: number): void {
+    index |= 0
+    const y = Math.floor(index / 5);
+    const x = Math.floor(index % 5);
+    led.plot(x,y)
+}
+}
