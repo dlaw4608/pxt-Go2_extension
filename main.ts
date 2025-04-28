@@ -3,9 +3,7 @@ namespace Dog_Commands {
     const moveDebounceInterval = 100;
     let lastCommandTime = 0;
 
-    export enum DogCommands {
-        Sit, RiseSit, StandUp, StandDown, Hello, Stretch, Wallow
-    }
+    
     /**
      * Sends a command to the dog
      */
@@ -53,6 +51,44 @@ namespace Dog_Commands {
                 default:
                     console.log("Unknown command");
             }
+        }
+    }
+
+    export enum DogCommands {
+        //% block="Sit"
+        Sit,
+        //% block="RiseSit"
+        RiseSit,
+        //% block="StandUp"
+        StandUp,
+        //% block="StandDown"
+        StandDown,
+        //% block="Hello"
+        Hello,
+        //% block="Stretch"
+        Stretch,
+        //% block="Wallow"
+        Wallow,
+    }
+
+
+    //% blockId=MoveGo2
+    //% block="Move Dog x:%x y:%y z:%z"
+    //% x.min=-1 x.max=1 x.defl=0
+    //% y.min=-1 y.max=1 y.defl=0
+    //% z.min=-1 z.max=1 z.defl=0
+    //% weight=100 
+    //% color="#ff6680" 
+    //% icon="\uf021"
+    export function moveDog(x: number, y: number, z: number) {
+        const currentTime2 = control.millis();
+        if (currentTime2 - lastCommandTime > moveDebounceInterval) {
+            lastCommandTime = currentTime2;
+            let command = 'Move, ${ x }, ${ y }, ${ z }\n';
+            radio.sendString(command);
+            console.log('Move command sent: ${ command }');
+        } else {
+            console.log("Move command skipped due to debounce interval");
         }
     }
 }
