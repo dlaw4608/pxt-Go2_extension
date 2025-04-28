@@ -48,6 +48,22 @@ namespace Dog_Commands {
                     radio.sendString("Wallow \n");
                     console.log("Command: Wallow");
                     break;
+                case DogCommands.Dance1:
+                    radio.sendString("Dance1 \n");
+                    console.log("Command: Dance 1");
+                    break;
+                case DogCommands.Dance2:
+                    radio.sendString("Dance2 \n");
+                    console.log("Command: Dance 2");
+                    break;
+                case DogCommands.FrontJump:
+                    radio.sendString("FrontJump \n");
+                    console.log("Command: Front Jump");
+                    break;
+                case DogCommands.FrontPounce:
+                    radio.sendString("FrontPounce \n");
+                    console.log("Command: Front Pounce");
+                    break;
                 default:
                     console.log("Unknown command");
             }
@@ -69,6 +85,15 @@ namespace Dog_Commands {
         Stretch,
         //% block="Wallow"
         Wallow,
+        //% block="Dance 1"
+        Dance1,
+        //% block="Dance 2"
+        Dance2,
+        //% block="Front Jump"
+        FrontJump,
+        //% block="Front Pounce"
+        FrontPounce
+
     }
 
 
@@ -89,6 +114,40 @@ namespace Dog_Commands {
             console.log('Move command sent: ${ command }');
         } else {
             console.log("Move command skipped due to debounce interval");
+        }
+    }
+
+    export enum ModeSwitch {
+        //% block="Normal Mode"
+        Normal,
+        //% block="AI Mode"
+        AI,
+    }
+
+    /**
+     * Mode Switcher
+     */
+    //% blockId=Mode_Switcher
+    //% block="Change Mode to %mode"
+    //% weight=100 
+    //% color="#ff6680" 
+    //% icon="\uf021"
+    export function modeSwitch(mode: ModeSwitch) {
+        const currentTime3 = control.millis();
+        if (currentTime3 - lastCommandTime > debounceInterval) {
+            lastCommandTime = currentTime3;
+            switch (mode) {
+                case ModeSwitch.Normal:
+                    radio.sendString("normal\n");
+                    console.log("Mode: Changing to Normal mode");
+                    break;
+                case ModeSwitch.AI:
+                    radio.sendString("ai\n");
+                    console.log("Mode: Changing to AI Mode");
+                    break;
+                default:
+                    console.log("Unknown command");
+            }
         }
     }
 }
