@@ -2,7 +2,6 @@ namespace Dog_Commands_BT {
     const debounceInterval = 500;
     const moveDebounceInterval = 100;
     let lastCommandTime = 0;
-
     /**
      * Sends a command to the dog over Bluetooth
      */
@@ -69,7 +68,6 @@ namespace Dog_Commands_BT {
             }
         }
     }
-
     /**
      * Move Dog over Bluetooth
      */
@@ -92,7 +90,6 @@ namespace Dog_Commands_BT {
             console.log("BT Move command skipped due to debounce interval");
         }
     }
-
     /**
      * Mode Switcher over Bluetooth
      */
@@ -102,9 +99,9 @@ namespace Dog_Commands_BT {
     //% color="#66ccff"
     //% icon="\uf287"
     export function modeSwitchBT(mode: ModeSwitchBT) {
-        const currentTime = control.millis();
-        if (currentTime - lastCommandTime > debounceInterval) {
-            lastCommandTime = currentTime;
+        const currentTime3 = control.millis();
+        if (currentTime3 - lastCommandTime > debounceInterval) {
+            lastCommandTime = currentTime3;
             switch (mode) {
                 case ModeSwitchBT.Normal:
                     bluetooth.uartWriteString("normal\n");
@@ -119,7 +116,6 @@ namespace Dog_Commands_BT {
             }
         }
     }
-
     // ENUM for Commands
     export enum DogCommands_BT {
         //% block="Sit"
@@ -145,7 +141,6 @@ namespace Dog_Commands_BT {
         //% block="Front Pounce"
         FrontPounce
     }
-
     // ENUM for Mode Switcher
     export enum ModeSwitchBT {
         //% block="Normal Mode"
