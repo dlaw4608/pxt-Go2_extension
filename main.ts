@@ -286,7 +286,7 @@ namespace Dog_Commands {
      * Free Avoidance Control 
      */
     //% blockId=Free_Avoidance_Control
-    //% block="Set Free Avoidance %mode"
+    //% block="Set %mode"
     //% weight=98
     //% color="#33cc33"
     //% icon="\uf05b"
@@ -313,7 +313,7 @@ namespace Dog_Commands {
      * Stair Walking Control 
      */
     //% blockId=Stair_Walking_Control
-    //% block="Set Stair Walking %mode"
+    //% block="Set %mode"
     //% weight=97
     //% color="#33cc33"
     //% icon="\uf05b"
@@ -340,7 +340,7 @@ namespace Dog_Commands {
      * Lead Follow Control 
      */
     //% blockId=Lead_Follow_Control
-    //% block="Set Lead Follow %mode"
+    //% block="Set %mode"
     //% weight=96
     //% color="#33cc33"
     //% icon="\uf05b"
@@ -367,7 +367,7 @@ namespace Dog_Commands {
      * Free Bound Control 
      */
     //% blockId=Free_Bound_Control
-    //% block="Set Free Bound %mode"
+    //% block="Set %mode"
     //% weight=95
     //% color="#33cc33"
     //% icon="\uf05b"
@@ -394,7 +394,7 @@ namespace Dog_Commands {
      * Free Jump Control 
      */
     //% blockId=Free_Jump_Control
-    //% block="Set Free Jump %mode"
+    //% block="Set %mode"
     //% weight=94
     //% color="#33cc33"
     //% icon="\uf05b"
